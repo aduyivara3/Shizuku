@@ -39,7 +39,19 @@ public class ShizukuConfigManager extends ConfigManager {
 
     private static final long WRITE_DELAY = 10 * 1000;
 
-    private static final File FILE = new File("/data/local/tmp/shizuku/shizuku.json");
+        api 'dev.rikka.rikkax.parcelablelist:parcelablelist:2.0.0'
+
+    implementation project(':aidl')
+    implementation project(':common')
+    implementation project(':shared')
+    compileOnly project(':provider')
+    implementation project(':starter')
+    implementation project(':rish')
+    implementation project(':server-shared')
+    implementation libs.hidden.compat
+    compileOnly libs.hidden.stub
+    annotationProcessor libs.refine.annotation.processor
+    implementation libs.refine.annotation static final File FILE = new File("/data/local/tmp/shizuku/shizuku.json");
     private static final AtomicFile ATOMIC_FILE = new AtomicFile(FILE);
 
     public static ShizukuConfig load() {
